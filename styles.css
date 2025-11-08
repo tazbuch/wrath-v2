@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(to bottom, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.game-container {
+    max-width: 900px;
+    width: 100%;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 3rem;
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 30px #00ff88;
+    letter-spacing: 10px;
+    margin-bottom: 15px;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-size: 1.2rem;
+}
+
+.stat {
+    background: rgba(0, 255, 136, 0.1);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #00ff88;
+}
+
+.stat .label {
+    color: #00ff88;
+    margin-right: 10px;
+}
+
+#gameCanvas {
+    display: block;
+    margin: 0 auto;
+    background: #000814;
+    border: 3px solid #00ff88;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+    border-radius: 5px;
+}
+
+.controls {
+    text-align: center;
+    margin-top: 20px;
+    background: rgba(0, 255, 136, 0.05);
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.controls h3 {
+    color: #00ff88;
+    margin-bottom: 10px;
+}
+
+.controls p {
+    margin: 5px 0;
+    color: #aaaaaa;
+}
+
+.controls strong {
+    color: #00ff88;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay.hidden {
+    display: none;
+}
+
+.overlay-content {
+    text-align: center;
+    background: rgba(26, 26, 46, 0.95);
+    padding: 40px 60px;
+    border-radius: 10px;
+    border: 3px solid #00ff88;
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+}
+
+.overlay-content h2 {
+    font-size: 2.5rem;
+    color: #00ff88;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+.overlay-content p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #cccccc;
+}
+
+button {
+    margin-top: 20px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-family: 'Courier New', monospace;
+    background: #00ff88;
+    color: #0a0e27;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: #00cc6f;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+        letter-spacing: 5px;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .overlay-content {
+        padding: 30px 40px;
+    }
+}
