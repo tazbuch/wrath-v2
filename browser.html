@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sage's Browser</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: #000;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .browser-header {
+            background: rgba(255, 255, 255, 0.1);
+            border-bottom: 2px solid #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .browser-title {
+            color: #fff;
+            font-size: 28px;
+            text-shadow: 0 0 20px #fff;
+            font-weight: 900;
+        }
+
+        .browser-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .browser-btn {
+            padding: 10px 25px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            background: transparent;
+            color: #fff;
+            border: 3px solid #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 0 15px #fff, inset 0 0 15px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+            font-weight: 700;
+        }
+
+        .browser-btn:hover {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 0 25px #fff, inset 0 0 25px rgba(255, 255, 255, 0.5);
+        }
+
+        .browser-frame {
+            flex: 1;
+            border: none;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="browser-header">
+        <div class="browser-title">Sage's Browser</div>
+        <div class="browser-buttons">
+            <button class="browser-btn" onclick="toggleFullscreen()">Fullscreen</button>
+            <button class="browser-btn" onclick="goBack()">Back to Vault</button>
+        </div>
+    </div>
+
+    <!-- Embedded site -->
+    <iframe class="browser-frame" 
+        id="browserFrame" 
+        src="https://purplemanatee5857.codehs.me/" 
+        allowfullscreen>
+    </iframe>
+
+    <script>
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    alert('Error attempting to enable fullscreen: ' + err.message);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
