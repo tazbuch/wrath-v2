@@ -3,14 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sage's Vault V1</title>
+    <title>wrath</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
-    <style>
-        @font-face {
-            font-family: 'Boblox';
-            src: url('https://see.fontimg.com/api/rf5/nRjl4/N2Q5MDY5M2NlNTU4NDE0N2I5NDY5ODFjNzc5ZjUzZTgudHRm/U2FnZXMgVmF1bHQgdjE/boblox-classic.png?r=fs&h=65&w=1000&fg=000000&bg=FFFFFF&tb=1&s=65');
-        }
-    </style>
+
     <style>
         * {
             margin: 0;
@@ -27,72 +23,22 @@
             position: relative;
         }
 
-        #canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
         .content {
             position: relative;
             z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .title {
-            position: fixed;
-            top: 20px;
-            left: 20px;
             font-size: 48px;
             color: #fff;
             text-shadow: 0 0 20px #fff, 0 0 40px #fff;
-            z-index: 100;
             letter-spacing: 4px;
             font-weight: 900;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .announcement {
-            position: fixed;
-            top: 90px;
-            left: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid #fff;
-            border-radius: 10px;
-            padding: 15px 20px;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-        }
-
-        .announcement-text {
-            color: #fff;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 18px;
+            margin-bottom: 40px;
             text-align: center;
-            margin: 0;
-            text-shadow: 0 0 10px #fff;
-        }
-
-        .close-announcement {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background: transparent;
-            border: none;
-            color: #fff;
-            font-size: 24px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-
-        .close-announcement:hover {
-            color: #f00;
-            text-shadow: 0 0 10px #f00;
         }
 
         .cloak-btn {
@@ -100,7 +46,6 @@
             top: 20px;
             right: 20px;
             padding: 15px 30px;
-            font-family: 'Orbitron', sans-serif;
             font-size: 24px;
             background: transparent;
             color: #fff;
@@ -120,13 +65,11 @@
         }
 
         .container {
-            margin-top: 180px;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             gap: 20px;
             max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
+            width: 100%;
         }
 
         .game-button {
@@ -140,7 +83,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-family: 'Orbitron', sans-serif;
             font-size: 14px;
             color: #fff;
             transition: all 0.3s;
@@ -202,7 +144,6 @@
 
         .modal-btn {
             padding: 10px 20px;
-            font-family: 'Orbitron', sans-serif;
             font-size: 20px;
             border: 3px solid;
             border-radius: 10px;
@@ -273,7 +214,6 @@
         }
 
         .cloak-content h2 {
-            font-family: 'Orbitron', sans-serif;
             font-size: 36px;
             margin-bottom: 20px;
             color: #fff;
@@ -289,7 +229,6 @@
             color: #fff;
             border: 2px solid #fff;
             border-radius: 10px;
-            font-family: 'Orbitron', sans-serif;
             font-size: 18px;
             cursor: pointer;
             width: 100%;
@@ -312,7 +251,6 @@
             color: #fff;
             border: 2px solid #fff;
             border-radius: 10px;
-            font-family: 'Orbitron', sans-serif;
             font-size: 18px;
             cursor: pointer;
             width: 100%;
@@ -327,17 +265,9 @@
     </style>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
-    
     <div class="content">
-        <div class="title">Sage's Vault V1</div>
-        
-        <div class="announcement" id="announcement">
-            <button class="close-announcement" onclick="closeAnnouncement()">×</button>
-            <p class="announcement-text">Wassup, ts js some project i made, i can take requests in my discord</p>
-        </div>
-        
-        <button class="cloak-btn" onclick="openCloakMenu()">Cloak</button>
+        <div class="title">wrath games</div>
+        <button class="cloak-btn" onclick="openCloakMenu()">cloak</button>
 
         <div class="container" id="gameContainer"></div>
 
@@ -353,151 +283,84 @@
 
         <div class="cloak-modal" id="cloakModal">
             <div class="cloak-content">
-                <h2>Cloaking Options</h2>
+                <h2>cloaking choices<br>hides the tab name</h2>
                 <button class="cloak-option" onclick="cloakSite('Google Classroom', 'https://classroom.google.com', 'https://ssl.gstatic.com/classroom/ic_product_classroom_32.png')">Google Classroom</button>
                 <button class="cloak-option" onclick="cloakSite('Google', 'https://www.google.com', 'https://www.google.com/favicon.ico')">Google</button>
                 <button class="cloak-option" onclick="cloakSite('Clever', 'https://clever.com', 'https://clever.com/favicon.ico')">Clever</button>
                 <button class="cloak-option" onclick="cloakSite('Google Drive', 'https://drive.google.com', 'https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png')">Google Drive</button>
                 <button class="cloak-option" onclick="cloakSite('Gmail', 'https://mail.google.com', 'https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico')">Gmail</button>
-                <button class="close-cloak" onclick="closeCloakMenu()">Close</button>
+                <button class="close-cloak" onclick="closeCloakMenu()">exit from screen</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Bouncing dots animation
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
-        
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
-        class Dot {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 2;
-                this.vy = (Math.random() - 0.5) * 2;
-                this.radius = Math.random() * 3 + 2;
-                this.color = '#fff';
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
-                ctx.shadowBlur = 20;
-                ctx.shadowColor = this.color;
-                ctx.fill();
-                ctx.shadowBlur = 0;
-            }
-        }
-
-        const dots = [];
-        for (let i = 0; i < 50; i++) {
-            dots.push(new Dot());
-        }
-
-        function animate() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            dots.forEach(dot => {
-                dot.update();
-                dot.draw();
-            });
-
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-
-        // Game buttons - Add your HTML file paths here
         const games = [
-            { id: 1, name: "Baldi's Basics Plus", icon: '🎮', url: 'baldis-basics.html' },
-            { id: 2, name: '1v1.lol', icon: '🎮', url: '1v1-lol.html' },
-            { id: 3, name: 'FNAF 1', icon: '🎮', url: 'fnaf.html' },
-            { id: 4, name: 'Minecraft 1.12.2', icon: '🎮', url: 'minecraft.html' },
-            { id: 5, name: 'Hollow Knight', icon: '🎮', url: 'hollow-knight.html' },
-            { id: 6, name: 'FNF', icon: '🎮', url: 'fnf.html' },
-            { id: 7, name: 'Basketball Stars', icon: '🎮', url: 'Basketball Stars.html' },
-            { id: 8, name: 'Cookie Clicker', icon: '🎮', url: 'Cookie Clicker.html' },
-            { id: 9, name: 'Crazy Cattle 3D', icon: '🎮', url: 'Crazy Cattle 3D.html' },
-            { id: 10, name: 'Drive Mad', icon: '🎮', url: 'Drive Mad.html' },
-            { id: 11, name: 'Fallout', icon: '🎮', url: 'Fallout.html' },
-            { id: 12, name: 'Granny', icon: '🎮', url: 'Granny.html' },
-            { id: 13, name: 'Gunspin', icon: '🎮', url: 'Gunspin.html' },
-            { id: 14, name: 'Retro Bowl College', icon: '🎮', url: 'Retro Bowl College.html' },
-            { id: 15, name: 'Slope', icon: '🎮', url: 'Slope.html' },
-            { id: 16, name: 'Steal A Brainrot', icon: '🎮', url: 'Steal A Brainrot.html' },
-            { id: 17, name: 'Subway Surfers London', icon: '🎮', url: 'Subway Surfers_ London.html' },
-            { id: 18, name: 'Super Mario Bros', icon: '🎮', url: 'Super Mario Bros.html' },
-            { id: 19, name: 'Time Shooter 3 SWAT', icon: '🎮', url: 'Time Shooter 3_ SWAT.html' },
-            { id: 20, name: 'Tomb Of The Mask', icon: '🎮', url: 'Tomb Of The Mask.html' },
-            { id: 21, name: 'BitLife', icon: '🎮', url: 'BitLife.html' },
-            { id: 22, name: 'Bloxorz', icon: '🎮', url: 'Bloxorz.html' },
-            { id: 23, name: 'Crazy Cars', icon: '🎮', url: 'Crazy Cars.html' },
-            { id: 24, name: 'FNF VS KAPI', icon: '🎮', url: 'Friday Night Funkin VS. KAPI.html' },
-            { id: 25, name: 'Geometry Dash Lite', icon: '🎮', url: 'Geometry Dash Lite.html' },
-            { id: 26, name: 'Growden.io', icon: '🎮', url: 'Growden.io.html' },
-            { id: 27, name: 'Nazi Zombies Portable', icon: '🎮', url: 'Nazi Zombies_ Portable.html' },
-            { id: 28, name: 'Sandboxels', icon: '🎮', url: 'Sandboxels.html' },
-            { id: 29, name: 'Sandtris', icon: '🎮', url: 'Sandtris.html' },
-            { id: 30, name: 'Steal Brainrot Online', icon: '🎮', url: 'Steal Brainrot Online.html' },
-            { id: 31, name: 'Sandstone', icon: '🎮', url: 'sandstone.html' },
-            { id: 32, name: 'Attack Hole', icon: '🎮', url: 'Attack Hole.html' },
-            { id: 33, name: 'Bacon May Die', icon: '🎮', url: 'Bacon May Die.html' },
-            { id: 34, name: 'Bank Robbery 2', icon: '🎮', url: 'Bank Robbery 2.html' },
-            { id: 35, name: 'Basket Random', icon: '🎮', url: 'Basket Random.html' },
-            { id: 36, name: 'Binding of Isaac', icon: '🎮', url: 'Binding of Issac_ Wrath of the Lamb.html' },
-            { id: 37, name: 'Crossy Road', icon: '🎮', url: 'Crossy Road.html' },
-            { id: 38, name: 'DOOM', icon: '🎮', url: 'DOOM.html' },
-            { id: 39, name: 'Half Life', icon: '🎮', url: 'Half Life.html' },
-            { id: 40, name: 'Pixel Gun Survival', icon: '🎮', url: 'Pixel Gun Survival.html' },
-            { id: 41, name: 'Plants vs Zombies', icon: '🎮', url: 'Plants vs Zombies.html' },
-            { id: 42, name: 'Solar Smash', icon: '🎮', url: 'Solar Smash.html' },
-            { id: 43, name: 'Sonic.EXE', icon: '🎮', url: 'Sonic.EXE (ORIGINAL).html' },
-            { id: 44, name: 'Bad Parenting 1', icon: '🎮', url: 'Bad Parenting 1.html' },
-            { id: 45, name: 'Bendy and the Ink Machine', icon: '🎮', url: 'Bendy and the Ink Machine.html' },
-            { id: 46, name: 'Kindergarten', icon: '🎮', url: 'Kindergarten.html' },
-            { id: 47, name: 'OMORI', icon: '🎮', url: 'OMORI.html' },
-            { id: 48, name: 'Sonic Mania', icon: '🎮', url: 'Sonic Mania.html' },
-            { id: 49, name: 'Soundboard', icon: '🎮', url: 'Soundboard.html' },
-            { id: 50, name: 'Stickman Hook', icon: '🎮', url: 'Stickman Hook.html' }
+{ id: 1, name: "Baldi's Basics Plus", icon: '📏', url: 'games/baldis-basics.html' },
+{ id: 2, name: '1v1.lol', icon: '🔫', url: 'games/1v1-lol.html' },
+{ id: 3, name: 'FNAF 1', icon: '🧸', url: 'games/browser.html' },
+{ id: 4, name: 'Minecraft 1.12.2', icon: '⛏️', url: 'games/minecraft.html' },
+{ id: 5, name: 'Hollow Knight', icon: '⚔️', url: 'games/hollow-knight.html' },
+{ id: 6, name: 'FNF', icon: '🎤', url: 'games/fnf.html' },
+{ id: 7, name: 'Basketball Stars', icon: '🏀', url: 'games/Basketball Stars.html' },
+{ id: 8, name: 'Cookie Clicker', icon: '🍪', url: 'games/Cookie Clicker.html' },
+{ id: 9, name: 'Crazy Cattle 3D', icon: '🐄', url: 'games/Crazy Cattle 3D.html' },
+{ id: 10, name: 'Drive Mad', icon: '🚗', url: 'games/Drive Mad.html' },
+{ id: 11, name: 'Fallout', icon: '☢️', url: 'games/Fallout.html' },
+{ id: 12, name: 'Granny', icon: '👵', url: 'games/Granny.html' },
+{ id: 13, name: 'Gunspin', icon: '🔫', url: 'games/Gunspin.html' },
+{ id: 14, name: 'Retro Bowl College', icon: '🏈', url: 'games/Retro Bowl College.html' },
+{ id: 15, name: 'Slope', icon: '🌀', url: 'games/Slope.html' },
+{ id: 16, name: 'Steal A Brainrot', icon: '🧠', url: 'games/Steal A Brainrot.html' },
+{ id: 17, name: 'Subway Surfers London', icon: '🚆', url: 'games/Subway Surfers_ London.html' },
+{ id: 18, name: 'Super Mario Bros', icon: '🍄', url: 'games/Super Mario Bros.html' },
+{ id: 19, name: 'Time Shooter 3 SWAT', icon: '⏱️', url: 'games/Time Shooter 3_ SWAT.html' },
+{ id: 20, name: 'Tomb Of The Mask', icon: '💀', url: 'games/Tomb Of The Mask.html' },
+{ id: 21, name: 'BitLife', icon: '💻', url: 'games/BitLife.html' },
+{ id: 22, name: 'Bloxorz', icon: '🧊', url: 'games/Bloxorz.html' },
+{ id: 23, name: 'Crazy Cars', icon: '🏎️', url: 'games/Crazy Cars.html' },
+{ id: 24, name: 'FNF VS KAPI', icon: '🐱', url: 'games/Friday Night Funkin VS. KAPI.html' },
+{ id: 25, name: 'Geometry Dash Lite', icon: '📐', url: 'games/Geometry Dash Lite.html' },
+{ id: 26, name: 'Growden.io', icon: '👨‍🌾', url: 'games/Growden.io.html' },
+{ id: 27, name: 'Nazi Zombies Portable', icon: '🧟', url: 'games/Nazi Zombies_ Portable.html' },
+{ id: 28, name: 'Sandboxels', icon: '🧪', url: 'games/Sandboxels.html' },
+{ id: 29, name: 'Sandtris', icon: '🧱', url: 'games/Sandtris.html' },
+{ id: 30, name: 'Steal Brainrot Online', icon: '🧠', url: 'games/Steal Brainrot Online.html' },
+{ id: 31, name: 'Sandstone', icon: '🏜️', url: 'games/sandstone.html' },
+{ id: 32, name: 'Attack Hole', icon: '🕳️', url: 'games/Attack Hole.html' },
+{ id: 33, name: 'Bacon May Die', icon: '🥓', url: 'games/Bacon May Die.html' },
+{ id: 34, name: 'Bank Robbery 2', icon: '💰', url: 'games/Bank Robbery 2.html' },
+{ id: 35, name: 'Basket Random', icon: '🏀', url: 'games/Basket Random.html' },
+{ id: 36, name: 'Binding of Isaac', icon: '👶', url: 'games/Binding of Issac_ Wrath of the Lamb.html' },
+{ id: 37, name: 'Crossy Road', icon: '🐔', url: 'games/Crossy Road.html' },
+{ id: 38, name: 'DOOM', icon: '😈', url: 'games/DOOM.html' },
+{ id: 39, name: 'Half Life', icon: '🧪', url: 'games/Half Life.html' },
+{ id: 40, name: 'Pixel Gun Survival', icon: '🔫', url: 'games/Pixel Gun Survival.html' },
+{ id: 41, name: 'Plants vs Zombies', icon: '🌻', url: 'games/Plants vs Zombies.html' },
+{ id: 42, name: 'Solar Smash', icon: '🌎', url: 'games/Solar Smash.html' },
+{ id: 43, name: 'Sonic.EXE', icon: '😈', url: 'games/Sonic.EXE (ORIGINAL).html' },
+{ id: 44, name: 'Bad Parenting 1', icon: '👨‍👦', url: 'games/Bad Parenting 1.html' },
+{ id: 45, name: 'Bendy and the Ink Machine', icon: '🖤', url: 'games/Bendy and the Ink Machine.html' },
+{ id: 46, name: 'Kindergarten', icon: '🎒', url: 'games/Kindergarten.html' },
+{ id: 47, name: 'OMORI', icon: '🖤', url: 'games/OMORI.html' },
+{ id: 48, name: 'Sonic Mania', icon: '🌀', url: 'games/Sonic Mania.html' },
+{ id: 49, name: 'Soundboard', icon: '🔊', url: 'games/Soundboard.html' },
+{ id: 50, name: 'Stickman Hook', icon: '웃', url: 'games/Stickman Hook.html' }
         ];
+
 
         function renderGames() {
             const container = document.getElementById('gameContainer');
             games.forEach(game => {
                 const button = document.createElement('div');
                 button.className = 'game-button';
-                button.innerHTML = `
-                    <div class="icon">${game.icon}</div>
-                    <div>${game.name}</div>
-                `;
+                button.innerHTML = `<div class="icon">${game.icon}</div><div>${game.name}</div>`;
                 button.onclick = () => openGame(game.url, game.name);
                 container.appendChild(button);
             });
         }
 
         function openGame(url, name) {
-            if (!url) {
-                alert('No game URL set for ' + name);
-                return;
-            }
             const modal = document.getElementById('gameModal');
             const frame = document.getElementById('gameFrame');
             frame.src = url;
@@ -514,9 +377,7 @@
         function toggleFullscreen() {
             const frame = document.getElementById('gameFrame');
             if (!document.fullscreenElement) {
-                frame.requestFullscreen().catch(err => {
-                    alert('Error attempting to enable fullscreen: ' + err.message);
-                });
+                frame.requestFullscreen();
             } else {
                 document.exitFullscreen();
             }
@@ -535,20 +396,11 @@
             link.rel = 'icon';
             link.href = iconUrl;
             document.head.appendChild(link);
-            
             document.title = name;
-            
             closeCloakMenu();
-            alert('Site cloaked as: ' + name);
-        }
-
-        function closeAnnouncement() {
-            document.getElementById('announcement').style.display = 'none';
         }
 
         renderGames();
     </script>
 </body>
 </html>
-
-
