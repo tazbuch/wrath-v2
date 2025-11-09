@@ -249,7 +249,7 @@
             padding: 12px;
             background: transparent;
             color: #fff;
-            border: 2px solid #fff;
+            border: 2px solid #fffjgb
             border-radius: 10px;
             font-size: 18px;
             cursor: pointer;
@@ -274,7 +274,7 @@
         <div class="modal" id="gameModal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button class="modal-btn fullscreen-btn" onclick="toggleFullscreen()">Fullscreen</button>
+                    <button class="modal-btn fullscreen-btn" onclick="toggleFullscreen()">fullscreen</button>
                     <button class="modal-btn close-btn" onclick="closeGame()">X</button>
                 </div>
                 <iframe class="game-frame" id="gameFrame" src=""></iframe>
@@ -298,10 +298,10 @@
         const games = [
 { id: 1, name: "Baldi's Basics Plus", icon: '📏', url: 'games/baldis-basics.html' },
 { id: 2, name: '1v1.lol', icon: '🔫', url: 'games/1v1-lol.html' },
-{ id: 3, name: 'FNAF 1', icon: '🧸', url: 'games/browser.html' },
+{ id: 3, name: 'FNAF 1', icon: '🧸', url: 'games/clFNAF.html' },
 { id: 4, name: 'Minecraft 1.12.2', icon: '⛏️', url: 'games/minecraft.html' },
 { id: 5, name: 'Hollow Knight', icon: '⚔️', url: 'games/hollow-knight.html' },
-{ id: 6, name: 'FNF', icon: '🎤', url: 'games/fnf.html' },
+{ id: 6, name: '99 Nights in the Forests', icon: '🦌', url: 'games/cl99nightsitf.html' },
 { id: 7, name: 'Basketball Stars', icon: '🏀', url: 'games/Basketball Stars.html' },
 { id: 8, name: 'Cookie Clicker', icon: '🍪', url: 'games/Cookie Clicker.html' },
 { id: 9, name: 'Crazy Cattle 3D', icon: '🐄', url: 'games/Crazy Cattle 3D.html' },
@@ -319,7 +319,7 @@
 { id: 21, name: 'BitLife', icon: '💻', url: 'games/BitLife.html' },
 { id: 22, name: 'Bloxorz', icon: '🧊', url: 'games/Bloxorz.html' },
 { id: 23, name: 'Crazy Cars', icon: '🏎️', url: 'games/Crazy Cars.html' },
-{ id: 24, name: 'FNF VS KAPI', icon: '🐱', url: 'games/Friday Night Funkin VS. KAPI.html' },
+{ id: 24, name: 'Google Dino', icon: '🐱‍🐉', url: 'games/clgoogledino.html' },
 { id: 25, name: 'Geometry Dash Lite', icon: '📐', url: 'games/Geometry Dash Lite.html' },
 { id: 26, name: 'Growden.io', icon: '👨‍🌾', url: 'games/Growden.io.html' },
 { id: 27, name: 'Nazi Zombies Portable', icon: '🧟', url: 'games/Nazi Zombies_ Portable.html' },
@@ -345,8 +345,38 @@
 { id: 47, name: 'OMORI', icon: '🖤', url: 'games/OMORI.html' },
 { id: 48, name: 'Sonic Mania', icon: '🌀', url: 'games/Sonic Mania.html' },
 { id: 49, name: 'Soundboard', icon: '🔊', url: 'games/Soundboard.html' },
-{ id: 50, name: 'Stickman Hook', icon: '웃', url: 'games/Stickman Hook.html' }
-        ];
+{ id: 50, name: 'Stickman Hook', icon: '웃', url: 'games/Stickman Hook.html' },
+{ id: 51, name: 'FIFA 07', icon: '⚽', url: 'games/clFIFA07.html' },
+{ id: 52, name: 'FIFA 99', icon: '⚽', url: 'games/clFIFA99.html' },
+{ id: 53, name: 'FIFA 95', icon: '⚽', url: 'games/clFIFAsoccer95.html' },
+{ id: 54, name: 'FIFA 96', icon: '⚽', url: 'games/clFIFAsoccer96.html' },
+{ id: 55, name: 'FIFA 97', icon: '⚽', url: 'games/clFIFAsoccer97.html' },
+{ id: 56, name: 'Granny', icon: '👵', url: 'games/clgranny.html' },
+{ id: 57, name: 'Granny 3', icon: '👵', url: 'games/clgranny3.html' },
+{ id: 58, name: 'Lucky Blocks', icon: '🎉', url: 'games/clLuckyBlocks.html' },
+{ id: 59, name: 'Madden NFL 93', icon: '🏈', url: 'games/clmadden93.html' },
+{ id: 60, name: 'Madden NFL 94', icon: '🏈', url: 'games/clmadden94.html' },
+{ id: 61, name: 'Madden NFL 95', icon: '🏈', url: 'games/clmadden95.html' },
+{ id: 62, name: 'Madden NFL 96', icon: '🏈', url: 'games/clmadden96.html' },
+{ id: 63, name: 'Madden NFL 98', icon: '🏈', url: 'games/clmadden98.html' },
+{ id: 64, name: 'Madden NFL 99', icon: '🏈', url: 'games/clmadden99.html' },
+{ id: 65, name: 'Mortal Kombat', icon: '💀', url: 'games/clmortalkombat.html' },
+{ id: 66, name: 'Mortal Kombat 2', icon: '💀', url: 'games/clmortalkombat2.html' },
+{ id: 67, name: 'Mortal Kombat 3', icon: '💀', url: 'games/clmortalkombat3.html' },
+{ id: 68, name: 'Moto x3m 2', icon: '🏍️', url: 'games/clmotox3m2.html' },
+{ id: 69, name: 'Moto x3m 3', icon: '🏍️', url: 'games/clmotox3m3.html' },
+{ id: 70, name: 'Moto x3m Spooky Land', icon: '🏍️', url: 'games/clmotox3mspookyland.html' },
+{ id: 71, name: 'Moto x3m Winter', icon: '🏍️', url: 'games/clmotox3mwinter.html' },
+{ id: 72, name: 'Futbol Legends', icon: '⚽', url: 'games/clfootballlegends.html' },
+{ id: 73, name: 'Aquapark.io', icon: '🌊', url: 'games/claquaparkio.html' },
+{ id: 74, name: 'Basketball Stars', icon: '🏀', url: 'games/clbasketballstars.html' },
+{ id: 75, name: 'Blackjack', icon: '🃏', url: 'games/clblackjack.html' },
+{ id: 76, name: 'Block Blast', icon: '🧱', url: 'games/clblockblast.html' },
+{ id: 77, name: 'Class of 09', icon: '🎓', url: 'games/clclassof09.html' },
+{ id: 78, name: 'Color Sort', icon: '🎨', url: 'games/clcolorwatersort3d.html' },
+{ id: 79, name: 'Doki Doki Literature Club', icon: '📚', url: 'games/cldokidokiliteratureclub.html' },
+{ id: 80, name: 'Grow a Garden', icon: '🌱', url: 'games/clgrowagarden.html' },
+];
 
 
         function renderGames() {
